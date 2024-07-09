@@ -1,0 +1,12 @@
+.container .row{
+    margin-top: 50px;
+}
+
+
+.container .text-center .mr-2{
+    margin-right: 1100px;
+    background-color: rgb(123, 195, 233) !important;
+}
+.container .text-center .mr-3{
+    background-color: rgb(123, 195, 233)  !important;
+}
