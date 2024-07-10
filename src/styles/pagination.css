@@ -1,0 +1,35 @@
+.container h1{
+    margin-bottom: 50px;
+}
+.container nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    padding-bottom: -30px;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-select {
+    width: auto;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+.pagination {
+    margin-bottom: 0;
+}
+
+
+
+.dropdown .btn  {
+    background-color: #4CAF50;
+}
+
+
+
