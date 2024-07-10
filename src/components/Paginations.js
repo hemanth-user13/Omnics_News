@@ -51,7 +51,7 @@ function Paginations() {
 
     return (
         <div className="container mt-4">
-            <h1 style={{ textAlign: "center", fontFamily: 'Old newspaper font, sans-serif' }}>Try Pagination</h1>
+            <h1 style={{ textAlign: "center", fontFamily: 'Old newspaper font, sans-serif' }}>Try Pagination new</h1>
             <div className="d-flex justify-content-between align-items-center mb-3">
                 <div className="dropdown">
                     <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
