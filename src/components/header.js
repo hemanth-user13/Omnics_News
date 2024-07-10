@@ -14,6 +14,7 @@ function Header() {
             <div className="navbar-nav">
               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
               <Link className="nav-link" to="/headlines">Recent Post</Link>
+              <Link className="nav-link" to="/pagination">Pagination</Link>
               <Link className="nav-link" href="#">Help</Link>
             </div>
           </div>
