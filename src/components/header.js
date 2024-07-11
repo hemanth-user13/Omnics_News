@@ -41,6 +41,12 @@ function Header() {
               <Link className="nav-link" to="/Coviddata">
                 Covid Data
               </Link>
+              <Link className="nav-link" to="/testing">
+                Testing Data
+              </Link>
+              <Link className="nav-link" to="/handle">
+                Handle On Drag
+              </Link>
 
               <Link className="nav-link" href="#">
                 Help
