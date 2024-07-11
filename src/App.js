@@ -1,23 +1,26 @@
-import './App.css';
-import Header from './components/header';
+import "./App.css";
+import Header from "./components/header";
 // import Features from './components/features';
-import Headlines from './components/headlines';
+import Headlines from "./components/headlines";
 // import Main from './components/main';
-import DataFromApi from './components/newsApi';
-import Pagination from './components/Paginations'
+import DataFromApi from "./components/newsApi";
+import Pagination from "./components/Paginations";
+import Postaldata from "./components/postaldata";
+import Coviddata from "./components/covid";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
-      <div >
+      <div>
         <Header />
         <Routes>
-          <Route exact path="/" element={<DataFromApi/>} />
+          <Route exact path="/" element={<DataFromApi />} />
           <Route exact path="/headlines" element={<Headlines />} />
-          <Route exact path="/pagination" element={<Pagination/>}/>
+          <Route exact path="/pagination" element={<Pagination />} />
+          <Route exact path="/postaldata" element={<Postaldata />} />
+          <Route exact path="/Coviddata" element={<Coviddata />} />
         </Routes>
-      
       </div>
     </BrowserRouter>
   );
