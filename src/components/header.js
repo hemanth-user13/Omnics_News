@@ -38,19 +38,26 @@ function Header() {
               <Link className="nav-link" to="/postaldata">
                 Postal Data
               </Link>
-              <Link className="nav-link" to="/Coviddata">
+              {/* <Link className="nav-link" to="/Coviddata">
                 Covid Data
-              </Link>
+              </Link> */}
               <Link className="nav-link" to="/testing">
-                Testing Data
+                Covid Data
               </Link>
               <Link className="nav-link" to="/handle">
                 Handle On Drag
               </Link>
 
-              <Link className="nav-link" href="#">
-                Help
+              <Link className="nav-link" to="./task1">
+                Task-1
               </Link>
+              <Link className="nav-link" to="./task2">
+              Task-2
+              </Link>
+              {/* <Link className="maps" to="./maps">
+              Maps Free API
+              </Link>
+               */}
             </div>
           </div>
         </div>
