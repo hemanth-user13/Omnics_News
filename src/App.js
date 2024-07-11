@@ -10,7 +10,7 @@ import Coviddata from "./components/covid";
 import Test from './components/test';
 import Task from './components/practice'
 import Task1 from './components/practice_props';
-import Maps from './components/maps'
+// import Maps from './components/maps'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -28,7 +28,7 @@ function App() {
           <Route exact path="/testing" element={<Test />} />
           <Route exact path="/task1" element={<Task />} />
           <Route exact path="/task2" element={<Task1 />} />
-          <Route exact path="/maps" element={<Maps />} />
+          {/* <Route exact path="/maps" element={<Maps />} /> */}
 
 
         </Routes>
