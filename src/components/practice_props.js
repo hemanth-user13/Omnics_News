@@ -5,6 +5,7 @@ function practice_props() {
     <div>
         <SendData name="hemanth " age={23}/>
         <Counter/>
+        <Fetchphotos/>
     </div>
   )
 }
@@ -39,6 +40,28 @@ const Counter=()=>{
     )
 }
 
+const Fetchphotos = async () => {
+    const url = 'https://maps-data.p.rapidapi.com/photos.php?business_id=0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0&lang=en&country=us';
+    
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-Rapidapi-Key': '1e63ab5ec4msh5d1e28ab5953857p150d29jsn814412a49142',
+            'X-Rapidapi-Host': 'maps-data.p.rapidapi.com'
+        }
+    };
+    
+    try {
+        const response = await fetch(url, options);
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+};
+
+
+Fetchphotos();
 
 
 export default practice_props
