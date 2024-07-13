@@ -1,47 +1,31 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function UserLogin({ setIsAuthenticated, setUsername }) {
-  const [loginUsername, setLoginUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const [username, setLoginUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const refreshToken = localStorage.getItem('refreshToken');
-    if (refreshToken) {
-      axios.post('http://localhost:3000/token', { token: refreshToken })
-        .then(response => {
-          localStorage.setItem('accessToken', response.data.accessToken);
-          setIsAuthenticated(true);
-          setUsername(localStorage.getItem('username'));
-          navigate('/');
-        })
-        .catch(error => {
-          console.error('Token refresh error:', error);
-        });
-    }
-  }, [setIsAuthenticated, setUsername, navigate]);
 
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/login', {
-        username: loginUsername,
+      const response = await axios.post("http://localhost:3000/login", {
+        username,
         password,
       });
-      localStorage.setItem('accessToken', response.data.accessToken);
-      localStorage.setItem('refreshToken', response.data.refreshToken);
-      localStorage.setItem('username', response.data.username);
-      setIsAuthenticated(true);
-      setUsername(response.data.username);
-      navigate('/');
+      setMessage(response.data.message);
+      if (response.status === 200) {
+        setIsAuthenticated(true);
+        setUsername(username);
+        navigate("/");
+      }
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        setMessage('Invalid username or password');
+        setMessage("Invalid username or password");
       } else {
-        setMessage('There is an error');
+        setMessage("There is an error");
       }
     }
   };
@@ -61,7 +45,7 @@ function UserLogin({ setIsAuthenticated, setUsername }) {
                   <input
                     type="text"
                     className="form-control"
-                    value={loginUsername}
+                    value={username}
                     onChange={(e) => setLoginUsername(e.target.value)}
                     required
                   />

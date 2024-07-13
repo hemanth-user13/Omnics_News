@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import "./App.css";
-import LoginPage from './components/userLogin';
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/header";
 import Headlines from "./components/headlines";
 import DataFromApi from "./components/newsApi";
 import Pagination from "./components/Paginations";
-import Postaldata from "./components/postaldata";
-import Coviddata from "./components/covid";
-import Test from './components/test';
-import Task from './components/practice';
-import Task1 from './components/practice_props';
+import PostalData from "./components/postaldata";
+import CovidData from "./components/covid";
+import Test from "./components/test";
+import Task from "./components/practice";
+import Task1 from "./components/practice_props";
+import UserLogin from "./components/userLogin";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
   return (
     <BrowserRouter>
@@ -22,17 +22,53 @@ function App() {
         {isAuthenticated && <Header username={username} />}
         <Routes>
           <Route
-            path="/"
-            element={isAuthenticated ? <DataFromApi /> : <Navigate to="/login" />}
+            path="/login"
+            element={
+              <UserLogin
+                setIsAuthenticated={setIsAuthenticated}
+                setUsername={setUsername}
+              />
+            }
           />
-          <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} setUsername={setUsername} />} />
-          <Route path="/headlines" element={<Headlines />} />
-          <Route path="/pagination" element={<Pagination />} />
-          <Route path="/postaldata" element={<Postaldata />} />
-          <Route path="/Coviddata" element={<Coviddata />} />
-          <Route path="/testing" element={<Test />} />
-          <Route path="/task1" element={<Task />} />
-          <Route path="/task2" element={<Task1 />} />
+          <Route
+            path="/"
+            element={
+              isAuthenticated ? <DataFromApi /> : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/headlines"
+            element={isAuthenticated ? <Headlines /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/pagination"
+            element={
+              isAuthenticated ? <Pagination /> : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/postaldata"
+            element={
+              isAuthenticated ? <PostalData /> : <Navigate to="/login" />
+            }
+          />
+          <Route
+            path="/coviddata"
+            element={isAuthenticated ? <CovidData /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/testing"
+            element={isAuthenticated ? <Test /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/task1"
+            element={isAuthenticated ? <Task /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/task2"
+            element={isAuthenticated ? <Task1 /> : <Navigate to="/login" />}
+          />
+          <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </div>
     </BrowserRouter>
