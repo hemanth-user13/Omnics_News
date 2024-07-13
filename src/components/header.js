@@ -41,7 +41,7 @@ function Header({ username }) {
               <Link className="nav-link" to="/testing">
                 Covid Data
               </Link>
-              
+
               <Link className="nav-link" to="./task1">
                 Task-1
               </Link>
